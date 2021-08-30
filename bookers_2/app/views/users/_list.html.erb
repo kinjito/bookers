@@ -1,0 +1,38 @@
+ 　　<div class="con">
+ 　　　<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+ 　　　　　<h1>User info</h1>
+          <%= attachment_image_tag user,:profile_image, fallback: "no_image.jpg"%>
+        <tr></br>
+          <th>name</th>
+          <%= user.name %>
+        </tr></br>
+        <tr>
+          <th>introduction</th>
+          <%= user.introduction %>
+        </tr>
+ 
+        
+           <%= link_to"",edit_user_path(current_user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+      
+      　<h1>New book</h1>
+
+             <%= form_with model: book, local:true do |f| %>
+
+              <div class="form-group">
+                <label for="book_title">Title</label>
+                  <!--<input  type="text" name="book[title]" id="book_title" class="form-control book_title">-->
+                   <%= f.text_field :title, class: "form-control book_title" %>
+             </div>
+             
+              <div class="form-group">
+                  <label for="book_opinion">Opinion</label>
+                  <!--<textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>-->
+                   <%= f.text_area :body, class: "form-control"%>
+             </div>
+
+              <div class="form-group">
+                <!--<input type="submit" name="commit"value="Create Book"  class="btn btn-success" data-disable-with="Create Book">-->
+                   <%= f.submit 'Create Book',class: "btn btn-success"%>
+             </div>
+             <% end %>
+      </div>

@@ -1,0 +1,26 @@
+
+<body>
+ <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+   <thead> 
+   
+     <h1>Books</h1>
+    <table class='table table-hover table-inverse'>
+     <tr>
+      <th>title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+     </tr>
+   </thead>
+   <tbody>
+          <% @users.each do |user| %>
+     
+          <td><a href="/users/">
+          <img class="attachment user profile_image fallback" src="no-image.jpg" />
+          </a> </td>
+        <td><a class="book/" href="/books/"></a><%= @user.name %></td>
+        <td><%= @user.introduction %></td>
+   </tbody>
+    <% end %>
+  </table>
+      <%= render "users/list", user:@user,book:@book %> 
+</body>

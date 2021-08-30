@@ -1,0 +1,29 @@
+
+<h1>Book detail</h1>
+  <tbody>
+          <% @users.each do |user| %>
+     
+          <td><a href="/users/">
+          <img class="attachment user profile_image fallback" src="no-image.jpg" />
+          </a> </td>
+        <td><a class="book/" href="/books/"></a><%= @user.name %></td>
+        <td><%= @user.introduction %></td>
+   </tbody>
+    <% end %>
+
+      <% if @book.user == current_user %>
+         <span> ｜ </span><%= link_to "destroy", book_path(@book), class:"text-dark", method: :delete %>
+      <% end %>
+
+
+
+
+     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <%= render "users/list", user:@user,book:@book %>
+
+   <!--< % if @book.id == current_user.id %>-->
+   <!--   < %= link_to "プロフィール編集", edit_book_path(@book) %></p>-->
+   <!--   < %= link_to "Show", book_path(@book) %>-->
+   <!--   < %= link_to 'Back', books_path %>-->
+   <!-- < % end %>-->
+
