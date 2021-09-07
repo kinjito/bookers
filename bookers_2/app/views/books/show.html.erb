@@ -1,24 +1,24 @@
-
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 <h1>Book detail</h1>
   <tbody>
+       
+
+          <!--    < %= user.name %>-->
+          <!--   < %= image_tag('no_image.jpg') %>-->
+
+       <!--< % if @users == current_user.id %>-->
           <% @users.each do |user| %>
-     
-          <td><a href="/users/">
-          <img class="attachment user profile_image fallback" src="no-image.jpg" />
-          </a> </td>
-        <td><a class="book/" href="/books/"></a><%= @user.name %></td>
-        <td><%= @user.introduction %></td>
-   </tbody>
-    <% end %>
+          <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "form-control-file user_image"%>
+          <%= user.name %>
+          <%= user.introduction %>
 
-      <% if @book.user == current_user %>
-         <span> ｜ </span><%= link_to "destroy", book_path(@book), class:"text-dark", method: :delete %>
-      <% end %>
+          <%= link_to "Edit",edit_book_path, class: "btn btn-sm btn-success" %>
+          <%= link_to "destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %>
+          <% end %>
+          <!--< % end %>-->
+          <%= paginate @users %>
+  </tbody> 
 
-
-
-
-     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <%= render "users/list", user:@user,book:@book %>
 
    <!--< % if @book.id == current_user.id %>-->
@@ -26,4 +26,3 @@
    <!--   < %= link_to "Show", book_path(@book) %>-->
    <!--   < %= link_to 'Back', books_path %>-->
    <!-- < % end %>-->
-

@@ -1,10 +1,15 @@
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 <div class="pen">
   <body>
-   <p id="notice"><%= notice %></p>
-    <table>
-    <thead>
-         <tr></tr>
+   <main>
+      <p id="notice"><%= notice %></p>
+      <div class="container px-5 px-sm-0">
+       <%= render "users/list", user:@user,book:@book %>
+      </div>
+      
+       <table>
+       <thead>
+            <tr></tr>
          <h1>Books</h1>
           <th>title</th>
           <th>Opinion</th>
@@ -17,9 +22,7 @@
          <% end %>
         </tbody>
      </table>
-  
-    <main>
-       <%= render "users/list", user:@user,book:@book %>
+       
     </main>
  </body>
  </div>

@@ -1,26 +1,39 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all
-    
-    @user = User.new
+
     @book = Book.new
+    @user = User.new
+
   end
 
   def show
     @book = Book.find(params[:id])
+    # @users=User.all
+    # @books = Book.all
     @user = User.new
-    @users = User.all
+    @users = User.page(params[:page]).reverse_order
+   
+    
   end
 
-  def edit 
+  def edit
+    @books = Book.new
     @book = Book.find(params[:id])
+    #if params[:id] == current_user.id
+  #   @user = User.find(params[:id])
+  #   render action: :edit
+  # else
+  #   @user = current_user
+  #   render action: :show
+  # end
   end
 
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    redirect_to book_path(current_user.id)
+    redirect_to book_path(@book)
   end
 
   def update
@@ -30,15 +43,15 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    # @book = Book.find(params[:id])
-    # @book.destroy
-    # redirect_to  books_path
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to  books_path
   end
-  
+
 
   private
-  
+
   def book_params
-    params.require(:book).permit(:title, :body ,:image)
+    params.require(:book).permit(:title, :body )
   end
 end
