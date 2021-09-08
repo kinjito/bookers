@@ -11,7 +11,6 @@
           <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "form-control-file user_image"%>
           <%= user.name %>
           <%= user.introduction %>
-
           <%= link_to "Edit",edit_book_path, class: "btn btn-sm btn-success" %>
           <%= link_to "destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %>
           <% end %>
