@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     def index
       @users = User.all
-
       @user = User.new
       @book = Book.new
     end
@@ -14,15 +13,8 @@ class UsersController < ApplicationController
 
     def edit
       @users = User.new
-      # @users = User.all
       @user = User.find(params[:id])
-    # if params[:id] == current_user.id
-    #   @user = User.find(params[:id])
-    #   render action: :edit
-    # else
-    #   @user = current_user
-    #   render action: :show
-    # end
+      # @books = Book.new
     end
 
     def create
@@ -30,7 +22,6 @@ class UsersController < ApplicationController
       @user.user_id = current_user.id
       @user.save
       redirect_to book_path(current_user.id)
-      # user_path(current_user)
     end
 
     def update
@@ -43,7 +34,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @user.destroy
       redirect_to  users_path
-      # ,notice: 'Book was successfully destroyed.'
     end
 
     private

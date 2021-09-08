@@ -1,27 +1,13 @@
-<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-<h1>Book detail</h1>
-  <tbody>
-       
-
-          <!--    < %= user.name %>-->
-          <!--   < %= image_tag('no_image.jpg') %>-->
-
-       <!--< % if @users == current_user.id %>-->
-          <% @users.each do |user| %>
-          <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "form-control-file user_image"%>
-          <%= user.name %>
-          <%= user.introduction %>
-          <%= link_to "Edit",edit_book_path, class: "btn btn-sm btn-success" %>
-          <%= link_to "destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %>
-          <% end %>
-          <!--< % end %>-->
-          <%= paginate @users %>
-  </tbody> 
-
+<main>
+ <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <%= render "users/list", user:@user,book:@book %>
-
-   <!--< % if @book.id == current_user.id %>-->
-   <!--   < %= link_to "プロフィール編集", edit_book_path(@book) %></p>-->
-   <!--   < %= link_to "Show", book_path(@book) %>-->
-   <!--   < %= link_to 'Back', books_path %>-->
-   <!-- < % end %>-->
+   
+ <h1>Book detail</h1>
+  <tbody>
+      <p><%= attachment_image_tag @user,:profile_image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg" %></p>
+      <p><%= @book.title %></p>
+      <p><%= @book.body %></p>
+      <p><%= link_to "Edit",edit_book_path, class: "btn btn-sm btn-success" %></p>
+      <p><%= link_to "destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %></p>
+  </tbody>
+</main>

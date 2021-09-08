@@ -3,10 +3,9 @@
   <body>
    <main>
       <p id="notice"><%= notice %></p>
-      
         <div class="container px-5 px-sm-0">
          <div class="row">
-          <%= render "users/list", user:@user,book:@book %>
+          <p><%= render "users/list", user:@user,book:@book %></p>
          <div class="col-md-8 offset-md-1">
            <h2>Books</h2>
            <table class="table table-hover table-inverse">
@@ -23,17 +22,14 @@
                <td><%= attachment_image_tag @user,:profile_image, fallback: "no_image.jpg"%></td>
                <td><%= book.title %></td>
                <td><%= book.body %></td>
-                <% end %>
+               <% end %>
              </tbody>
            </table>
          </div>
          </div>
         </div>
-      
-     
      </table>
-       
     </main>
- </body>
+  </body>
  </div>
 

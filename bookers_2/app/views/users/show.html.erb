@@ -2,7 +2,7 @@
 <main>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <p id="notice"><%= notice %></p>
-   <%= render "users/list", user:@user,book:@book %>
+    <%= render "users/list", user:@user,book:@book %>
    <div class="col-md-8 offset-md-1">
      <h2>Books</h2>
      <table class='table table-hover table-inverse'>
@@ -16,19 +16,11 @@
    </thead>
    <tbody>
     <tr>
-       <!--<　% @users.each do |user| %>-->
-      <!--<td><a href="/users/id">-->
-       <!--<img class="attachment user profile_image fallback" src="no-image.jpg" />-->
-       <p><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class:"mt-3 rounded-circle"%></p>
+     
        <p><%= @book.title %></p>
        <p><%= @book.body %></p>
     </tr>
-        <!--<td><a class="book/" href="/books/">-->
-
-        <!--</a>< %= user.name %></td>-->
-        <!--<td>< %= user.introduction %></td>-->
    </tbody>
-    <!--< % end %>-->
    </table>
    </div>
 </main>
