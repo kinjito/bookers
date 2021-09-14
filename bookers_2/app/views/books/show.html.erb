@@ -1,10 +1,10 @@
 <main>
  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <%= render "users/list", user:@user,book:@book %>
-   
+ <p id="notice"><%= notice %></p>
+  <%= render "users/list",user:@user,book:@book %>
  <h1>Book detail</h1>
   <tbody>
-      <p><%= attachment_image_tag @user,:profile_image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg" %></p>
+      <p><%= attachment_image_tag @book.user,:profile_image,format: 'jpeg',fallback: "no_image.jpg",size: "100x100"  %></p>
       <p><%= @book.title %></p>
       <p><%= @book.body %></p>
       <p><%= link_to "Edit",edit_book_path, class: "btn btn-sm btn-success" %></p>

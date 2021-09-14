@@ -1,37 +1,33 @@
-<div class="col-md-3">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
    <h2>User info</h2>
-   <p><%= attachment_image_tag user,:profile_image,format: 'jpeg',fallback: "no_image.jpg",size: "100x100" %></p>
-   
- <tbody>
-   <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
+   <p><%= attachment_image_tag user,:profile_image,fallback: "no_image.jpg",size: "100x100" %></p>
+  <tbody>
+   <table class="table">
+    <tr></tr>
+    <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
    </tr>
-   <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
+    <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
    </tr>
+   </table>
  </tbody>
-
    <div class="row">
       <a><%= link_to"",edit_user_path(current_user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %></a>
    </div>
-
     <h2 class="mt-3">New book</h2>
       <%= form_with model: book, local:true do |f| %>
-          <div class="form-group">
+        <div class="form-group">
             <label for="book_title">Title</label>
               <P><%= f.text_field :title, class: "form-control" %></P>
           </div>
-
-          <div class="form-group">
+        <div class="form-group">
             <label for="book_opinion">Opinion</label>
               <P><%= f.text_area :body, class: "form-control"%></P>
           </div>
-
-          <div class="form-group">
+        <div class="form-group">
               <P><%= f.submit 'Create Book',class: "btn btn-success"%></P>
           </div>
       <% end %>
-</div>
