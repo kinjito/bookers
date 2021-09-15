@@ -1,13 +1,26 @@
 <main>
  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
  <p id="notice"><%= notice %></p>
-  <%= render "users/list",user:@user,book:@book %>
- <h1>Book detail</h1>
-  <tbody>
-      <p><%= attachment_image_tag @book.user,:profile_image,format: 'jpeg',fallback: "no_image.jpg",size: "100x100"  %></p>
-      <p><%= @book.title %></p>
-      <p><%= @book.body %></p>
-      <p><%= link_to "Edit",edit_book_path, class: "btn btn-sm btn-success" %></p>
-      <p><%= link_to "destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %></p>
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+   <div class="col-md-3">
+   <%= render "users/list",user:@user,book:@book %>
+  </div>
+    <div class="col-md-8 offset-md-1">
+   <h1>Book detail</h1>
+    <tbody>
+     <table class="table">
+      <td><%= attachment_image_tag @book.user,:profile_image,format: 'jpeg',fallback: "no_image.jpg",size: "100x100"  %>
+      <%= link_to @user.name,user_path(current_user) %></td>
+       <td><%= link_to @book.title,book_path(@book) %></td>
+       <td><%= @book.body %></td>
+      <% if @user.id == current_user.id %>
+       <td><%= link_to "Edit",edit_book_path, class: "btn btn-sm btn-success" %></td>
+       <td><%= link_to "destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %></td>
+      <% end %>
+     </table>
   </tbody>
+  </div>
+  </div>
+ </div>
 </main>

@@ -1,9 +1,9 @@
-
-<main>
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <p id="notice"><%= notice %></p>
-  <div class="container px-5 px-sm-0">
-   <div class="row"> 
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+ <body>
+  <main>
+   <p id="notice"><%= notice %></p>
+   <div class="container px-5 px-sm-0">
+    <div class="row"> 
     <div class="col-md-3">
      <%= render "users/list", user:@user,book:@book %>
     </div>
@@ -31,4 +31,5 @@
      </div>
    </div>
   </div>
-</main>
+ </main>
+</body>

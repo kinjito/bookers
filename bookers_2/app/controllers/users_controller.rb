@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def index
       @users = User.all
-      # @user = User.new
+      # @user = User.new #追記すべきか
       @book = Book.new
       # @books = @user.books
     end
@@ -24,12 +24,18 @@ class UsersController < ApplicationController
       @user.user_id = current_user.id
       @user.save
       redirect_to book_path(current_user.id)
+      # else
+      # render :show
+      # end
     end
 
     def update
       @user = User.find(params[:id])
       @user.update(user_params)
       redirect_to user_path(@user)
+      # else
+      # render :edit
+      # end
     end
 
     def destroy
